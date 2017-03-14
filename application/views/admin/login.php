@@ -1,3 +1,4 @@
+<!-- This view is for login purposes  -->
 <div class="jumbotron jb-reduced">
   <div class="row">
     <div class="col-sm-12">
@@ -12,7 +13,7 @@
               <input type="password" name="pass" class="form-control"/>
             </div>
             <div class="text-center">
-              <button type="button" class="btn bg-purple">Ingresar</button>
+              <button type="button" class="btn bg-purple" id="ingress_btn">Ingresar</button>
             </div>
         </form>
   </div>
