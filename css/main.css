@@ -2,6 +2,11 @@
   background-color: #8B008B;
   color: #FFF;
 }
+
+button.bg-purple:hover{
+  background-color:#ed55de;
+  color:#fff;
+}
 .container-fluid{
   margin: 25px auto;
 }

@@ -25,5 +25,10 @@ class Wall extends CI_Controller{
     $this->load->view('admin/login');
     $this->load->view('templates/footer');
   }
+  function register(){
+    $this->load->view('templates/top');
+    $this->load->view('admin/register');
+    $this->load->view('templates/footer');
+  }
 
 }
