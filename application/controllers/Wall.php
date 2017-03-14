@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
+session_start();
 class Wall extends CI_Controller{
 
   public function __construct()
@@ -11,7 +11,7 @@ class Wall extends CI_Controller{
 
   function index()
   {
-    $this->load->view('admin/inicio')
+    $this->load->view('admin/start');
   }
 
 }
