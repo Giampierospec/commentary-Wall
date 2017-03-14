@@ -1,0 +1,17 @@
+.bg-purple{
+  background-color: #8B008B;
+  color: #FFF;
+}
+.container-fluid{
+  margin: 25px auto;
+}
+footer{
+  margin-top: 70px;
+}
+h1,h2,h3,h4,h5,h6{
+  font-family: 'Lobster', cursive;
+}
+p{
+  font-family: 'Ranga', cursive;
+  font-size: 25px;
+}
