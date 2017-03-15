@@ -15,17 +15,20 @@ function showForm(){
   $("footer, .jumbotron").fadeIn(5000).addClass("animated bounce");
 }
 //This function will verify the form and submit the details
-function formSubmit(){
+/*function formSubmit(){
   var email = email_input.value;
   var pass = pass_input.value;
     if(email != '' || pass != ''){
-      document.login_form.submit();
+      document.login_form.submit(function(event) {
+        event.preventDefault();
+      });
     }
     else{
       $("#message").show(0,showText);
 
     }
 }
+
  //This function will show the text inside message
 function showText(){
   $("#message").html("<p>Hay campos vacios llenelos</p>").fadeIn(4000,dissappearText);
@@ -34,12 +37,12 @@ function showText(){
 //This function dissapears the text
 function dissappearText(){
   $("#message").fadeOut(5000);
-}
+}*/
 
 
 //Event Listeners
 
 //Shows the effects when the page finishes loading
 window.addEventListener("load",showEffects);
-access_btn.addEventListener("click",formSubmit);
+//access_btn.addEventListener("click",formSubmit);
 //It triggers when the button is clicked
