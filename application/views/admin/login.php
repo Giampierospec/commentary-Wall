@@ -53,7 +53,7 @@ if($_POST){
                     //This will retrieve my variable from php verifying that is not empty
                     var message = '<?php echo (isset($message)?$message:'') ?>';
                     if(message != ''){
-                      $("#message").show(0,messageAppend).addClass('alert-dismissable close');
+                      $("#message").show(0,messageAppend).addClass('alert-dismissable fade in');
                     }
                     else{
                       $("#message").hide();
@@ -62,9 +62,11 @@ if($_POST){
                   }
                     //function to append the desired message
                     function messageAppend(){
+                      $(message).appendTo('#message').fadeIn(5000,closeMessage).addClass("animated bounce");
+                    }
+                    function closeMessage(){
                       var close = '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>';
-                      $(close).appendTo('#message').fadeIn(15000);
-                      $(message).appendTo('#message').fadeIn(5000);
+                      $(close).appendTo('#message').fadeIn(5000);
                     }
                   </script>
                 </div>

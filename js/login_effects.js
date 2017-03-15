@@ -7,16 +7,14 @@ var execute = false;
 //Functions
 //This function shows the initial effects the form will have
 // when is displayed
-function showEffects() {
-  var execute = false;
+function showEffects(){
   if(!execute){
-    //$("#message").hide();
     $("footer, .jumbotron").hide(0,showForm);
   }
 }
 //Shows all the elements of the form after they've been hidden
 function showForm(){
-  $("footer, .jumbotron").fadeIn(5000).addClass("animated bounce");
+  $("footer, .jumbotron").fadeIn(2000).addClass("animated bounce");
 }
 //This function will verify the form and submit the details
 function formSubmit(){
@@ -25,6 +23,7 @@ function formSubmit(){
       if(email != '' || pass != ''){
         document.login_form.submit(function(event) {
           execute = true;
+           save(execute);
           event.preventDefault();
       });
   }
@@ -43,18 +42,18 @@ function showText(){
 function dissappearText(){
   $("#message").fadeOut(5000);
   execute = true;
-  save(messageText);
+  save(execute);
 }
 //This function will save this variable here
  function save(text){
   var datos = JSON.stringify(text);
-  localStorage.setItem('messageText',datos);
+  localStorage.setItem('execute',datos);
 }
 
 function loadData(){
   var datos = localStorage.getItem('messageText');
   if(datos != null){
-    messageText = JSON.parse(datos);
+    execute = JSON.parse(datos);
     showEffects();
   }
 }
@@ -62,6 +61,6 @@ function loadData(){
 //Event Listeners
 
 //Shows the effects when the page finishes loading
-window.addEventListener("load",loadData);
+window.addEventListener("load",showEffects);
 access_btn.addEventListener("click",formSubmit);
 //It triggers when the button is clicked
