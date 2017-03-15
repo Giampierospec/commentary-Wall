@@ -26,7 +26,7 @@ function formSubmit(){
 
     }
 }
-
+ //This function will show the text inside message
 function showText(){
   $("#message").html("<p>Hay campos vacios llenelos</p>").fadeIn(4000,dissappearText);
 }
