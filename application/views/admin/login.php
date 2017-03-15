@@ -1,5 +1,6 @@
 <?php
 $CI =& get_instance();
+$message = '';
 if($_POST){
   $sql = 'select * from user where email = ? and pass = ?';
 
@@ -10,42 +11,12 @@ if($_POST){
   $rs = $rs->result();
   // Here i can check if the user exists
   if(count($rs) > 0){
-    ?>
-    <script type="text/javascript">
-    $(document).ready(function() {
-      $("#message").removeClass('alert-danger').show(0,showText);
-    });
-    //This function shows text
-    function showText(){
 
-        $("#message").addClass('alert-danger').html('<span>Datos correctos</span>').fadeIn(4000, dissappearText);
-
-    }
-    //This function dissappears text
-    function dissappearText(){
-      $("#message").fadeOut(5000);
-    }
-    </script>
-    <?php
     $_SESSION['comment_user'] = $rs[0];
-    var_dump($_SESSION);
+
   }
   else{
-    //This script is for showing some warning text
-    ?>
-    <script type="text/javascript">
-      $(document).ready(function() {
-        $("#message").removeClass('alert-success').show(0,showText);
-      });
-      function showText(){
-        $("#message").addClass('alert-danger').html('<span> Usuario o contraseña incorrectos</span>').fadeIn(4000, dissappearText);
-      }
-      //This function dissappears text
-      function dissappearText(){
-        $("#message").fadeOut(5000);
-      }
-    </script>
-    <?php
+    $message='clave o usuario incorrectos';
   }
 }
  ?>
@@ -74,7 +45,21 @@ if($_POST){
             <div class="row">
               <div class="col-sm-12">
                 <div id="message" class="alert alert-danger" style="display:none;">
-
+                  <?php echo $message ?>
+                  <script type="text/javascript">
+                    var message = '<?php echo (isset($message)?$message:'') ?>';
+                    if(message != ''){
+                      $("#message").show(0,messageAppend).addClass('alert-dismissable');
+                    }
+                    else{
+                      $("#message").hide();
+                    }
+                    function messageAppend(){
+                      var close = '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>';
+                      $(close).appendTo('#message').fadeIn(10000);
+                      $(message).appendTo('#message').fadeIn(5000);
+                    }
+                  </script>
                 </div>
               </div>
             </div>
