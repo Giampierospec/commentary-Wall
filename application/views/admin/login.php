@@ -46,17 +46,24 @@ if($_POST){
               <div class="col-sm-12">
                 <div id="message" class="alert alert-danger" style="display:none;">
                   <?php echo $message ?>
+                  <!-- This script will allow me to show the message -->
                   <script type="text/javascript">
+                  $(document).ready(initMessage);
+                  function initMessage(){
+                    //This will retrieve my variable from php verifying that is not empty
                     var message = '<?php echo (isset($message)?$message:'') ?>';
                     if(message != ''){
-                      $("#message").show(0,messageAppend).addClass('alert-dismissable');
+                      $("#message").show(0,messageAppend).addClass('alert-dismissable close');
                     }
                     else{
                       $("#message").hide();
                     }
+
+                  }
+                    //function to append the desired message
                     function messageAppend(){
                       var close = '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>';
-                      $(close).appendTo('#message').fadeIn(10000);
+                      $(close).appendTo('#message').fadeIn(15000);
                       $(message).appendTo('#message').fadeIn(5000);
                     }
                   </script>
