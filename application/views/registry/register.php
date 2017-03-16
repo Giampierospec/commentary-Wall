@@ -63,7 +63,7 @@ else{
             </div>
             <div class="row">
               <div class="col-sm-12">
-                <a href="<?php echo base_url('admin') ?>"><p>¿Tiene cuenta? Ingrese aquí</p></a>
+                <a href="<?php echo base_url('wall/login') ?>"><p>¿Tiene cuenta? Ingrese aquí</p></a>
               </div>
             </div>
             <div class="row">

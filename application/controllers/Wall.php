@@ -30,5 +30,9 @@ class Wall extends CI_Controller{
     $this->load->view('admin/register');
     $this->load->view('templates/footer');
   }
+  function logout(){
+    unset($_SESSION['comment_user']);
+    redirect(wall);
+  }
 
 }

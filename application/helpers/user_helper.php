@@ -1,10 +1,9 @@
 <?php
 //This will load everything from my commentary
-function loadUserCommentary($user){
+function loadCommentary(){
   $CI =& get_instance();
-  $idUser = $user;
-  $sql = "select * from commentary where id = ?";
-  $rs = $CI->db->query($sql,array($idUser));
+  $sql = "select * from commentary";
+  $rs = $CI->db->query($sql);
   return $rs->result();
 }
  ?>
