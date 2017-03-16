@@ -29,7 +29,7 @@ function formSubmit(){
       });
   }
   else{
-    $("#message").show(0,showText);
+    $("#message").show(1000,showText);
   }
 }
 
