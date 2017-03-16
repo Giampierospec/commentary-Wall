@@ -1,7 +1,7 @@
 <?php
 //This is to insert my commentary to the database
 $currentUser = $_SESSION['comment_user'];
-
+$commentUser = '';
 $CI =& get_instance();
 if($_POST){
   $com = new stdClass();
@@ -19,8 +19,10 @@ if($_POST){
 <div class="jumbotron jb-reduced-in-form">
   <?php
     $comment = loadCommentary();
-    $photoPath = base_url('userPhotos').$currentUser->imgContent;
+
     foreach ($comment as $commentary) {
+      $user = getUserCommentary($commentary->idUser);
+      $photoPath = base_url('userPhotos').$user->imgContent;
       echo "<div class='row'>
               <div class='col-sm-12'>
                 <div class='well well-specific'>
@@ -31,7 +33,7 @@ if($_POST){
                   <div class='col-sm-6'>
                     <div class = 'row'>
                       <div class='col-sm-6'>
-                        <p>{$currentUser->name} {$currentUser->lastname}<p>
+                        <p>{$user->name} {$user->lastname}<p>
                         </div>
                       <div class='col-sm-4'>
                         <img src='{$photoPath}' class='img-circle img-responsive little_img'/>
