@@ -28,17 +28,17 @@ if($_POST){
                 <div class='well well-specific'>
                 <div class='row'>
                   <div class='col-sm-6'>
-                    <p>{$commentary->comment}</p>
+                  <div class = 'row'>
+                    <div class='col-sm-4'>
+                      <img src='{$photoPath}' class='img-circle img-responsive little_img'/>
+                      </div>
+                    <div class='col-sm-6'>
+                      <p>{$user->name} {$user->lastname}<p>
+                    </div>
+                  </div>
                   </div>
                   <div class='col-sm-6'>
-                    <div class = 'row'>
-                      <div class='col-sm-6'>
-                        <p>{$user->name} {$user->lastname}<p>
-                        </div>
-                      <div class='col-sm-4'>
-                        <img src='{$photoPath}' class='img-circle img-responsive little_img'/>
-                      </div>
-                    </div>
+                    <p>{$commentary->comment}</p>
                   </div>
                 </div>
               </div>
