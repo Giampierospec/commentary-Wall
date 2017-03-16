@@ -13,6 +13,7 @@ if($_POST){
   if(count($rs) > 0){
 
     $_SESSION['comment_user'] = $rs[0];
+    redirect('wall');
 
   }
   else{

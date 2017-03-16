@@ -8,7 +8,7 @@ if($_POST){
     $f->email = $_POST['email'];
     $f->name = $_POST['name'];
     $f->lastName = $_POST['lastname'];
-    $f->pass = $_POST['pass'];
+    $f->pass = md5($_POST['pass']);
     $rs = $CI->db->query($sql, array($f->email));
     $rs = $rs->result();
     $f->imgPath = 'C:/xampp/htdocs/commentaryWall/userPhotos';
@@ -22,6 +22,7 @@ else{
   if($photo['error'] == 0 && ($photo['type'] == 'image/jpeg' || $photo['type'] == 'image/png')){
     $CI->db->insert('user',$f);
     move_uploaded_file($photo['tmp_name'],"$f->imgPath".$f->imgContent);
+    redirect("wall");
   }
   else{
     $message = "datos incorrectos vuelva a intentarlo";
@@ -99,3 +100,4 @@ else{
 </div>
 </div>
 </div>
+<script src="<?php echo base_url('') ?>js/registerEffects.js" charset="utf-8"></script>
