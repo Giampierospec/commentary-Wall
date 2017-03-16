@@ -2,11 +2,12 @@
 //This is to insert my commentary to the database
 $currentUser = $_SESSION['comment_user'];
 
-$Ci =& get_instance();
+$CI =& get_instance();
 if($_POST){
   $com = new stdClass();
-  $com->commentary = $_POST['commentary'];
+  $com->comment = $_POST['commentary'];
   $com->idUser = $currentUser->id;
+  $CI->db->insert('commentary',$com);
 }
 
  ?>
@@ -19,20 +20,29 @@ if($_POST){
   <?php
     $comment = loadCommentary();
     $photoPath = base_url('userPhotos').$currentUser->imgContent;
-    foreach ($commentary as $comment) {
+    foreach ($comment as $commentary) {
       echo "<div class='row'>
               <div class='col-sm-12'>
+                <div class='well well-specific'>
                 <div class='row'>
                   <div class='col-sm-6'>
-                    <p>{$comment->comment}</p>
+                    <p>{$commentary->comment}</p>
                   </div>
                   <div class='col-sm-6'>
-                    
+                    <div class = 'row'>
+                      <div class='col-sm-6'>
+                        <p>{$currentUser->name} {$currentUser->lastname}<p>
+                        </div>
+                      <div class='col-sm-4'>
+                        <img src='{$photoPath}' class='img-circle img-responsive little_img'/>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
+                </div>
             </div>
-      "
+      ";
     }
 
    ?>
