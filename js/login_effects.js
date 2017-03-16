@@ -20,11 +20,12 @@ function showForm(){
 function formSubmit(){
     var email = email_input.value;
     var pass = pass_input.value;
-      if(email != '' || pass != ''){
+      if(email != ''&& pass != ''){
+        console.log("email: "+ email + " pass: "+ pass);
         document.login_form.submit(function(event) {
           execute = true;
            save(execute);
-          event.preventDefault();
+         event.preventDefault();
       });
   }
   else{

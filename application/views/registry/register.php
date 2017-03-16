@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-sm-12">
         <legend><h2>Registrese en el sitio</h2></legend>
-        <form class="form-horizontal" action="" method="post" name="login_form">
+        <form  enctype="multipart/form-data"class="form-horizontal" action="" method="post" name="login_form">
           <div class="form-group input-group">
             <label for="name" class="input-group-addon bg-purple"> <i class="fa fa-user" aria-hidden="true"></i> Nombre</label>
             <input type="text" name="name" class="form-control" id="name" required/>
