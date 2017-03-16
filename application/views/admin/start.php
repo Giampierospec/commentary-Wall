@@ -57,7 +57,7 @@ if($_POST){
             <textarea name="commentary" rows="1" cols="80" class="form-control" placeholder="Introduzca su comentario" required></textarea>
           </div>
           <div class="col-sm-4">
-            <button type="submit" name="commentbtn" class="btn bg-purple">Comentar</button>
+            <button type="submit" name="commentbtn" class="btn bg-purple"> <i class="fa fa-comment"></i> Comentar</button>
           </div>
         </div>
 
