@@ -17,6 +17,7 @@ $data['title'] = '';
 <script src="https://use.fontawesome.com/01d9e54a7d.js"></script>
 <link rel="stylesheet" href="<?php echo base_url('') ?>css/login.css">
 <link rel="stylesheet" href="<?php echo base_url('') ?>css/main.css" />
+<link rel="stylesheet" href="<?php echo base_url('') ?>css/register.css">
 <link href="https://fonts.googleapis.com/css?family=Lobster|Ranga" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <title><?php echo $data['title'] = "Muro Mensajes  | Tarea 9"?></title>
