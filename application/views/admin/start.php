@@ -22,7 +22,7 @@ if($_POST){
 
     foreach ($comment as $commentary) {
       $user = getUserCommentary($commentary->idUser);
-      $photoPath = base_url('userPhotos').$user->imgContent;
+      $photoPath = base_url('').'userPhotos/'.$user->imgContent;
       echo "<div class='row'>
               <div class='col-sm-12'>
                 <div class='well well-specific'>
