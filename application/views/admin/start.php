@@ -38,13 +38,28 @@ if($_POST){
                   </div>
                   </div>
                   <div class='col-sm-6'>
-                    <p class='normal-font'>{$commentary->comment}</p>
-                  </div>
+                    <div class='row'>
+                        <div class='col-sm-6'>
+                          <p class='normal-font'>{$commentary->comment}</p>
+                        </div>";
+
+                    if($user->email == $currentUser->email){
+                      ?>
+                      <div class="col-sm-6">
+                        <a href="#">Eliminar</a>
+                        <a href="#">Editar</a>
+                      </div>
+
+                      <?php
+                    }
+
+
+                echo "</div>
+                </div>
                 </div>
               </div>
                 </div>
-            </div>
-      ";
+            </div>";
     }
 
    ?>
