@@ -1,6 +1,4 @@
-<?php
-$data['title'] = '';
- ?>
+
 <!DOCTYPE html>
 <html>
   <head>

@@ -1,12 +1,14 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 session_start();
+
 class Wall extends CI_Controller{
 
   public function __construct()
   {
     parent::__construct();
     //Codeigniter : Write Less Do More
+    $data['title'] = '';
     $method = $this->router->fetch_method();
     if(!isset($_SESSION["comment_user"]) && $method != 'login'){
       redirect('wall/login');

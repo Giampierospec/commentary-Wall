@@ -1,6 +1,7 @@
 <?php
 $CI =& get_instance();
 $message = '';
+$data['title'] = "Login page";
 if($_POST){
   $sql = 'select * from user where email = ? and pass = ?';
 
