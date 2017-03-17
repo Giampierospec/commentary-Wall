@@ -10,3 +10,6 @@
 .well-specific{
   margin-top: 2%;
 }
+.normal-font p{
+  font-family:sans-serif !important;
+}

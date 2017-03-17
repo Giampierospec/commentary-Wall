@@ -33,12 +33,12 @@ if($_POST){
                       <img src='{$photoPath}' class='img-circle img-responsive little_img'/>
                       </div>
                     <div class='col-sm-6'>
-                      <p>{$user->name} {$user->lastname}<p>
+                      <p class='normal-font'>{$user->name} {$user->lastname}<p>
                     </div>
                   </div>
                   </div>
                   <div class='col-sm-6'>
-                    <p>{$commentary->comment}</p>
+                    <p class='normal-font'>{$commentary->comment}</p>
                   </div>
                 </div>
               </div>
