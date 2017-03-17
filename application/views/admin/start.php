@@ -101,8 +101,10 @@ if($_POST){
       pId.focus();
       $(pId).keydown(function(event) {
         console.log(event.keyCode);
+        //Verify user hits enter
         if(event.which == 13){
           event.preventDefault();
+          //Redirect to edit
           window.open("<?php echo base_url('wall/edit/') ?>"+userId+"/"+pId.textContent,"_self");
         }
       });
