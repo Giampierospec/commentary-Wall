@@ -40,7 +40,7 @@ if($_POST){
                   <div class='col-sm-6'>
                     <div class='row'>
                         <div class='col-sm-6'>
-                          <p class='normal-font' id='comment'.{$commentary->id}>{$commentary->comment}</p>
+                          <p class='normal-font' id='comment{$commentary->id}'>{$commentary->comment}</p>
                         </div>";
 
                     if($user->email == $currentUser->email){
@@ -94,9 +94,18 @@ if($_POST){
 
   }
   function confirmationEdit(userId,comment){
-    id
+    //Here i verify that user confirms editing
+    var pId = document.getElementById('comment'+userId);
     if(confirm("¿Estás seguro que quieres editar la fila?")){
-
+      pId.contentEditable = "true";
+      pId.focus();
+      $(pId).keydown(function(event) {
+        console.log(event.keyCode);
+        if(event.which == 13){
+          event.preventDefault();
+          window.open("<?php echo base_url('wall/edit/') ?>"+userId+"/"+pId.textContent,"_self");
+        }
+      });
 
     }
 
