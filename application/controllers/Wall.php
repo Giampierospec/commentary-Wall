@@ -34,5 +34,14 @@ class Wall extends CI_Controller{
     unset($_SESSION['comment_user']);
     redirect(wall);
   }
+  function delete($commentId=0){
+    if($commentId == 0){
+      redirect('wall');
+    }
+    $CI =& get_instance();
+    $CI->db->where('id',$commentId);
+    $CI->db->delete('commentary');
+    redirect('wall');
+  }
 
 }

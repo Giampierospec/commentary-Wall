@@ -3,10 +3,11 @@
   color: #FFF;
 }
 
-button.bg-purple:hover{
+button.bg-purple:hover, a.bg-purple:hover{
   background-color:#ed55de;
   color:#fff;
 }
+
 .container-fluid{
   margin: 25px auto;
 }

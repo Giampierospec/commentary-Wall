@@ -40,14 +40,15 @@ if($_POST){
                   <div class='col-sm-6'>
                     <div class='row'>
                         <div class='col-sm-6'>
-                          <p class='normal-font'>{$commentary->comment}</p>
+                          <p class='normal-font' id='comment'.{$commentary->id}>{$commentary->comment}</p>
                         </div>";
 
                     if($user->email == $currentUser->email){
                       ?>
+                      <!-- In this part i show the delete and edit properties of the comments -->
                       <div class="col-sm-6">
-                        <a href="#">Eliminar</a>
-                        <a href="#">Editar</a>
+                        <a href="#" class=' btn bg-purple' onclick="confirmationDelete('<?php echo $commentary->id ?>');"><i class='fa fa-trash'></i></a>
+                        <a href="#" class='btn bg-purple' onclick="confirmationEdit('<?php echo $commentary->id ?>','<?php echo $commentary->comment ?>');"><i class="fa fa-pencil-square-o"></i></a>
                       </div>
 
                       <?php
@@ -83,3 +84,21 @@ if($_POST){
   </div>
 
 </div>
+<script type="text/javascript">
+  //This function will delete the commentary
+  function confirmationDelete(userId){
+    //Checking to make sure you delete your commentary
+    if(confirm("¿Estás seguro que quieres eliminar el comentario?")){
+      window.open("<?php echo base_url('wall/delete/') ?>"+userId,"_self");
+    }
+
+  }
+  function confirmationEdit(userId,comment){
+    id
+    if(confirm("¿Estás seguro que quieres editar la fila?")){
+
+
+    }
+
+  }
+</script>
