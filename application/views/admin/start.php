@@ -22,6 +22,7 @@ if($_POST){
 
     foreach ($comment as $commentary) {
       $user = getUserCommentary($commentary->idUser);
+      $response = getRespondonUser($user->id);
       $photoPath = base_url('').'userPhotos/'.$user->imgContent;
       echo "<div class='row'>
               <div class='col-sm-12'>
@@ -41,7 +42,14 @@ if($_POST){
                     <div class='row'>
                         <div class='col-sm-6'>
                           <p class='normal-font' id='comment{$commentary->id}'>{$commentary->comment}</p>
-                        </div>";
+                        ";
+                        ?>
+
+                          <a href="#" class="btn bg-purple" onclick='showModal()'><i class='fa fa-reply'></i></a>
+                          </div>
+                        <?php
+
+
 
                     if($user->email == $currentUser->email){
                       ?>
@@ -50,10 +58,34 @@ if($_POST){
                         <a href="#" class=' btn bg-purple' onclick="confirmationDelete('<?php echo $commentary->id ?>');"><i class='fa fa-trash'></i></a>
                         <a href="#" class='btn bg-purple' onclick="confirmationEdit('<?php echo $commentary->id ?>','<?php echo $commentary->comment ?>');"><i class="fa fa-pencil-square-o"></i></a>
                       </div>
+                    </div>
 
                       <?php
                     }
+                    echo"<div id='responseModal' class='modal fade' role='dialog'>
+                          <div class='modal-dialog'>
+                            <div class='modal-content'>
+                              <div class='modal-header'>
+                                <button type='button'class='close' data-dismiss='modal'>&times;</button>
+                                <h4 class='modal-title'>Responda a este comentario</h4>
+                              </div>
+                              <div class='modal-body'>
+                                  <div class = 'row'>
+                                    <div class='col-sm-6'>
+                                      <textarea name='response-text' rows='1' id='response-text{$commentary->id}' cols='80' class='form-control' placeholder='responda'></textarea>
+                                    </div>
+                                  </div>
+                              </div>
+                              <div class='modal-footer'>";
+                              ?>
+                                <button type="button" class="btn btn-default" onclick='insertResponse(<?php echo $commentary->id ?>, <?php echo $user->id ?>,<?php echo $currentUser->id?>)'>Responder</button>
 
+                                <?php
+                            echo"</div>
+                            </div>
+
+                          </div>
+                        </div>";
 
                 echo "</div>
                 </div>
@@ -61,6 +93,13 @@ if($_POST){
               </div>
                 </div>
             </div>";
+
+            foreach ($response as $rs) {
+              $userRespond = getUserCommentary($rs->currentUser);
+              if($commentary->id== $rs->idCommentary){
+                
+              }
+            }
     }
 
    ?>
@@ -111,5 +150,13 @@ if($_POST){
 
     }
 
+  }
+  function showModal(){
+    $("#responseModal").modal('show');
+  }
+  function insertResponse(commentId, userId, currentUser){
+    var comment = document.getElementById("response-text"+commentId);
+
+    window.open("<?php echo base_url('wall/insertResponse/') ?>"+commentId+"/"+userId+"/"+currentUser+"/"+comment.value,"_self");
   }
 </script>
