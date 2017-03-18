@@ -45,7 +45,7 @@ if($_POST){
                         ";
                         ?>
 
-                          <a href="#" class="btn bg-purple" onclick='showModal()'><i class='fa fa-reply'></i></a>
+                          <a href="#" class="btn bg-purple" onclick='showModal(<?php echo $commentary->id ?>, <?php echo $user->id ?>,<?php echo $currentUser->id?>)'><i class='fa fa-reply'></i></a>
                           </div>
                         <?php
 
@@ -62,7 +62,7 @@ if($_POST){
 
                       <?php
                     }
-                    echo"<div id='responseModal' class='modal fade' role='dialog'>
+                    echo"<div id='responseModal{$user->id}' class='modal fade' role='dialog'>
                           <div class='modal-dialog'>
                             <div class='modal-content'>
                               <div class='modal-header'>
@@ -72,16 +72,13 @@ if($_POST){
                               <div class='modal-body'>
                                   <div class = 'row'>
                                     <div class='col-sm-6'>
-                                      <textarea name='response-text' rows='1' id='response-text{$commentary->id}' cols='80' class='form-control' placeholder='responda'></textarea>
+                                      <textarea name='response-text' rows='1' id='response-text{$user->id}' cols='80' class='form-control' placeholder='responda'></textarea>
                                     </div>
                                   </div>
                               </div>
-                              <div class='modal-footer'>";
-                              ?>
-                                <button type="button" class="btn btn-default" onclick='insertResponse(<?php echo $commentary->id ?>, <?php echo $user->id ?>,<?php echo $currentUser->id?>)'>Responder</button>
-
-                                <?php
-                            echo"</div>
+                              <div class='modal-footer'>
+                              <button type='button' class='btn btn-default' id='btn-respond{$user->id}'>Responder</button>
+                            </div>
                             </div>
 
                           </div>
@@ -96,8 +93,29 @@ if($_POST){
 
             foreach ($response as $rs) {
               $userRespond = getUserCommentary($rs->currentUser);
+              $photoPath = base_url('').'userPhotos/'.$userRespond->imgContent;
               if($commentary->id== $rs->idCommentary){
-                
+                echo"
+                <div class='panel panel-default marginated-to-right'>
+                  <div class='panel body'>
+                  <div class='row'>
+                        <div class='col-sm-6'>
+                            <div class='row'>
+                              <div class='col-sm-4'>
+                              <img src='{$photoPath}' class='img-circle img-responsive little_img'/>
+                              </div>
+                              <div class='col-sm-6'>
+                                <p>{$userRespond->name} {$userRespond->lastname} </p>
+                              </div>
+                            </div>
+                          </div>
+                        <div class='col-sm-6'>
+                          <p> $rs->comment</p>
+                        </div>
+                  </div>
+                  </div>
+                </div>
+                ";
               }
             }
     }
@@ -151,12 +169,17 @@ if($_POST){
     }
 
   }
-  function showModal(){
-    $("#responseModal").modal('show');
-  }
-  function insertResponse(commentId, userId, currentUser){
-    var comment = document.getElementById("response-text"+commentId);
+  function showModal(commentId, userId, currentUser){
+    $("#responseModal"+userId).modal('show');
+    var comment = document.getElementById("response-text"+userId);
+    $("#btn-respond"+userId).click(function() {
+        window.open("<?php echo base_url('wall/insertResponse/') ?>"+commentId+"/"+userId+"/"+currentUser+"/"+comment.value,"_self");
+    });
 
-    window.open("<?php echo base_url('wall/insertResponse/') ?>"+commentId+"/"+userId+"/"+currentUser+"/"+comment.value,"_self");
+  }
+  function insertResponse(){
+
+
+
   }
 </script>

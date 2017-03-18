@@ -1,6 +1,8 @@
 .jb-reduced-in-form{
   width: 50%;
-  margin: 5% auto;
+  margin-top: 5%;
+  margin-left: auto;
+  margin-right: auto;
   background-color:transparent;
 }
 .little_img{
@@ -12,4 +14,9 @@
 }
 .normal-font p{
   font-family:sans-serif !important;
+}
+.marginated-to-right{
+  margin-left: 40%;
+  width: 75%;
+  background-color:#6a6e6c;
 }
