@@ -14,12 +14,4 @@ function getUserCommentary($userId){
   $user = $rs[0];
   return $user;
 }
-function getResponseCommentary($idCommentary,$currentUserId){
-$CI =& get_instance();
-$sql = 'select * from respondcommentary where idUserRespond = ? and idCommentary = ?';
-$rs = $CI->db->query($sql,array($idCommentary,$currentUserId));
-$rs = $rs->result();
-$response = $rs[0];
-return $response;
-}
  ?>
