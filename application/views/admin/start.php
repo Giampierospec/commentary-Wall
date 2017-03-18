@@ -22,10 +22,11 @@ if($_POST){
 
     foreach ($comment as $commentary) {
       $user = getUserCommentary($commentary->idUser);
+      $response = getResponseCommentary($commentary->id,$currentUser->id);
       $photoPath = base_url('').'userPhotos/'.$user->imgContent;
       echo "<div class='row'>
               <div class='col-sm-12'>
-                <div class='well well-specific'>
+                <div class='well well-specific' id='well'{$commentary->id}>
                 <div class='row'>
                   <div class='col-sm-6'>
                   <div class = 'row'>
@@ -42,11 +43,18 @@ if($_POST){
                         <div class='col-sm-6'>
                           <p class='normal-font' id='comment{$commentary->id}'>{$commentary->comment}</p>
                         </div>";
+                          ?>
+                          <!-- Here i add the reply button -->
+                          <div class="col-sm-2">
+                            <a href="#" class='btn bg-purple'><i class="fa fa-reply" aria-hidden="true"></i></a>
+                          </div>
 
+
+                        <?php
                     if($user->email == $currentUser->email){
                       ?>
                       <!-- In this part i show the delete and edit properties of the comments -->
-                      <div class="col-sm-6">
+                      <div class="col-sm-4">
                         <a href="#" class=' btn bg-purple' onclick="confirmationDelete('<?php echo $commentary->id ?>');"><i class='fa fa-trash'></i></a>
                         <a href="#" class='btn bg-purple' onclick="confirmationEdit('<?php echo $commentary->id ?>','<?php echo $commentary->comment ?>');"><i class="fa fa-pencil-square-o"></i></a>
                       </div>
@@ -61,6 +69,10 @@ if($_POST){
               </div>
                 </div>
             </div>";
+
+            if($commentary->id == $response->idCommentary){
+              
+            }
     }
 
    ?>
