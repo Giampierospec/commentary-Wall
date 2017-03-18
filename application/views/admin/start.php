@@ -169,12 +169,22 @@ if($_POST){
     }
 
   }
+  //Here i show my modal and insert it on the comments table
   function showModal(commentId, userId, currentUser){
-    $("#responseModal"+userId).modal('show');
-    var comment = document.getElementById("response-text"+userId);
-    $("#btn-respond"+userId).click(function() {
-        window.open("<?php echo base_url('wall/insertResponse/') ?>"+commentId+"/"+userId+"/"+currentUser+"/"+comment.value,"_self");
-    });
+    //Confirming if the user really wants to do this action
+    if(confirm("¿Seguro que quiere Responder a este comentario?")){
+      $("#responseModal"+userId).modal('show');
+
+      var comment = document.getElementById("response-text"+userId);
+      $("#btn-respond"+userId).click(function() {
+        if(comment.value == ''){
+          alert("El comentario está vacío intente denuevo");
+        }
+        else{
+          window.open("<?php echo base_url('wall/insertResponse/') ?>"+commentId+"/"+userId+"/"+currentUser+"/"+comment.value,"_self");
+        }
+      });
+    }
 
   }
   function insertResponse(){
