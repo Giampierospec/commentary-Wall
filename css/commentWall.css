@@ -1,6 +1,6 @@
 .jb-reduced-in-form{
   width: 50%;
-  margin-top: 5%;
+  margin-top: 2%;
   margin-left: auto;
   margin-right: auto;
   background-color:transparent;
@@ -15,8 +15,11 @@
 .normal-font p{
   font-family:sans-serif !important;
 }
+.panel{
+  width:50%:
+}
+/*  Added some tab*/
 .marginated-to-right{
-  margin-left: 40%;
-  width: 75%;
+  margin-left: 30%;
   background-color:#6a6e6c;
 }

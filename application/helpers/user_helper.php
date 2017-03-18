@@ -6,6 +6,7 @@ function loadCommentary(){
   $rs = $CI->db->query($sql);
   return $rs->result();
 }
+//This function gets me all the users based on an id
 function getUserCommentary($userId){
   $CI =& get_instance();
   $sql = "select * from user where id = ?";
@@ -14,7 +15,7 @@ function getUserCommentary($userId){
   $user = $rs[0];
   return $user;
 }
-
+//This will give me the respondcommentary table according to users
 function getRespondonUser($userId){
   $CI =& get_instance();
   $sql = "select * from respondcommentary where idUserRespond = ?";

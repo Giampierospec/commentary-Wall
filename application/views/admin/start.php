@@ -44,7 +44,7 @@ if($_POST){
                           <p class='normal-font' id='comment{$commentary->id}'>{$commentary->comment}</p>
                         ";
                         ?>
-
+                          <!-- This link will show me my modal and do all the commentary stuff! -->
                           <a href="#" class="btn bg-purple" onclick='showModal(<?php echo $commentary->id ?>, <?php echo $user->id ?>,<?php echo $currentUser->id?>)'><i class='fa fa-reply'></i></a>
                           </div>
                         <?php
@@ -62,6 +62,7 @@ if($_POST){
 
                       <?php
                     }
+                    //This is my modal  that will appear when i click on the link
                     echo"<div id='responseModal{$user->id}' class='modal fade' role='dialog'>
                           <div class='modal-dialog'>
                             <div class='modal-content'>
@@ -90,7 +91,7 @@ if($_POST){
               </div>
                 </div>
             </div>";
-
+//In this code i go and search for all my responses
             foreach ($response as $rs) {
               $userRespond = getUserCommentary($rs->currentUser);
               $photoPath = base_url('').'userPhotos/'.$userRespond->imgContent;
@@ -122,7 +123,7 @@ if($_POST){
 
    ?>
 </div>
-
+<!-- Here i comment normally -->
 <div class="jumbotron jb-reduced">
   <div class="row">
     <div class="col-sm-12">

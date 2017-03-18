@@ -37,14 +37,14 @@ class Wall extends CI_Controller{
     unset($_SESSION['comment_user']);
     redirect(wall);
   }
-  //This function deletes the comment
+  //This function deletes the comment and all the responses associated to it
   function delete($commentId=0){
     if($commentId == 0){
       redirect('wall');
     }
     $CI =& get_instance();
+    $CI->db->delete('respondcommentary',array('idCommentary' => $commentId));
     $CI->db->delete('commentary', array('id' => $commentId));
-    $CI->db->delete('respondcommentary',array('idCommentary' == $commentId));
     redirect('wall');
   }
 //This function edits the current comment
@@ -61,6 +61,7 @@ class Wall extends CI_Controller{
     redirect('wall');
 
   }
+  //This will insert all the data of the response
   function insertResponse(){
     $f = new stdClass();
     $f->idUserRespond = $this->uri->segment(4);
