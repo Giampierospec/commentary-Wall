@@ -1,4 +1,4 @@
-
+<?php date_default_timezone_set("America/Santo_Domingo"); ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -18,9 +18,7 @@
 <link rel="stylesheet" href="<?php echo base_url('') ?>css/register.css">
 <link rel="stylesheet" href="<?php echo base_url('') ?>css/commentWall.css">
 <link href="https://fonts.googleapis.com/css?family=Lobster|Ranga" rel="stylesheet">
-<!-- styles needed by jScrollPane -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-  <!-- the mousewheel plugin - optional to provide mousewheel support -->
     <title><?php echo $data['title'] = "Muro Mensajes  | Tarea 9"?></title>
   </head>
   <body>
