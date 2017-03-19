@@ -11,7 +11,7 @@ if($_POST){
     $f->pass = md5($_POST['pass']);
     $rs = $CI->db->query($sql, array($f->email));
     $rs = $rs->result();
-    $f->imgPath = '/xampp/htdocs/commentaryWall/userPhotos';
+    $f->imgPath = '/xampp/htdocs/commentaryWall/userPhotos/';
     $photo = $_FILES['photo'];
     $f->imgContent = $photo['name'];
     if(count($rs)>0){
@@ -21,8 +21,7 @@ if($_POST){
 else{
   if($photo['error'] == 0 && ($photo['type'] == 'image/jpeg' || $photo['type'] == 'image/png')){
     $CI->db->insert('user',$f);
-    $imgPath = '/xampp/htdocs/commentaryWall/userPhotos/';
-    move_uploaded_file($photo['tmp_name'],"$imgPath"."$f->imgContent");
+    move_uploaded_file($photo['tmp_name'],"$f->imgPath"."$f->imgContent");
     redirect("wall");
   }
   else{
