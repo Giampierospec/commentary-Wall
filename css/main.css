@@ -1,10 +1,10 @@
 .bg-purple{
-  background-color: #8B008B;
+  background-color:#1495b8;
   color: #FFF;
 }
 
 button.bg-purple:hover, a.bg-purple:hover{
-  background-color:#ed55de;
+  background-color:#3ab1d6;
   color:#fff;
 }
 
