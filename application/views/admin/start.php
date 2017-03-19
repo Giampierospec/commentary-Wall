@@ -73,7 +73,7 @@ if($_POST){
                                 <div class='modal-body'>
                                     <div class = 'row'>
                                       <div class='col-sm-6'>
-                                        <textarea name='response-text' rows='1' id='response-text{$user->id}' cols='80' class='form-control' placeholder='responda'></textarea>
+                                        <textarea name='response-text' rows='1' id='response-text{$user->id}' cols='80' class='form-control' placeholder='responda  a {$user->name} {$user->lastname}'></textarea>
                                       </div>
                                     </div>
                                 </div>
