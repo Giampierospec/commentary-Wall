@@ -55,7 +55,7 @@ else{
             </div>
             <div class="form-group input-group">
               <label for="photo" class="input-group-addon bg-purple"><i class="fa fa-picture-o" aria-hidden="true"></i> Haga click aqui para Subir Foto</label>
-              <input type="file" name="photo" class="form-control" id="photo"required accept="image/*" placeholder="busque su imagen"/>
+              <input type="file" name="photo" class="form-control" id="photo" required accept="image/*" placeholder="busque su imagen"/>
             </div>
 
             <div class="text-center">
