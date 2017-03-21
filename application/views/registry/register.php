@@ -11,7 +11,7 @@ if($_POST){
     $f->pass = md5($_POST['pass']);
     $rs = $CI->db->query($sql, array($f->email));
     $rs = $rs->result();
-    $f->imgPath = '/xampp/htdocs/commentaryWall/userPhotos/';
+    $f->imgPath = $_SERVER['DOCUMENT_ROOT'].'/commentaryWall/userPhotos/';
     $photo = $_FILES['photo'];
     $f->imgContent = $photo['name'];
     if(count($rs)>0){
